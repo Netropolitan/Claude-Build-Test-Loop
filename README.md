@@ -56,7 +56,19 @@ This isn't just for visual design. Any digital function with a clear "what corre
 
 ## Installation
 
-### 1. Enable Agent Teams
+### Quick Install (one command)
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/OWNER/claude-build-test-loop/main/install.sh | bash
+```
+
+This downloads the skill, places it in `~/.claude/skills/devtest/`, and enables Agent Teams in your settings. Restart Claude Code after running it.
+
+> Replace `OWNER` with the GitHub username/org once the repo is published.
+
+### Manual Install
+
+#### 1. Enable Agent Teams
 
 Agent Teams is required for this skill. Add the following to your `~/.claude/settings.json`:
 
@@ -70,7 +82,7 @@ Agent Teams is required for this skill. Add the following to your `~/.claude/set
 
 If the file already exists, merge the `env` block into your existing settings. Restart Claude Code after making this change.
 
-### 2. Install the Skill
+#### 2. Install the Skill
 
 Copy the `skill/` folder into your Claude Code skills directory:
 
@@ -88,9 +100,17 @@ Or if you cloned this repo:
 cp -r skill/ ~/.claude/skills/devtest/
 ```
 
-### 3. Verify
+#### 3. Verify
 
 Start a new Claude Code session and type `/devtest` — you should see the skill activate and ask you for a spec.
+
+### Uninstall
+
+```bash
+rm -rf ~/.claude/skills/devtest
+```
+
+To also disable Agent Teams, remove the `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` line from `~/.claude/settings.json`.
 
 ## Usage
 
